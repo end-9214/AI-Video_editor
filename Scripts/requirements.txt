@@ -1,0 +1,8 @@
+ffmpeg-python
+groq
+librosa
+numpy
+pydub
+python-dotenv
+soundfile
+python-dotenv
