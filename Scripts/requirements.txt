@@ -5,4 +5,7 @@ numpy
 pydub
 python-dotenv
 soundfile
-python-dotenv
+webrtcvad
+opencv-python
+moviepy
+bing-image-downloader
