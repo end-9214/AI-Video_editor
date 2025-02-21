@@ -8,7 +8,6 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY_FIRST")
 
 def transcription_of_audio(audio_file_path, retries=3):
-    """Uses Groq API to transcribe the given audio file."""
     client = Groq(api_key=GROQ_API_KEY)
     
     for attempt in range(retries):
@@ -21,13 +20,12 @@ def transcription_of_audio(audio_file_path, retries=3):
                 )
             return transcription.text, transcription.segments
         except Exception as e:
-            print(f"❌ Transcription error (Attempt {attempt+1}): {e}")
+            print(f"Transcription error (Attempt {attempt+1}): {e}")
             time.sleep(2**attempt)
 
     return None, None
 
 def extract_filler_words(transcribed_text):
-    """Extracts filler words from the transcription using Groq."""
     client = Groq(api_key=GROQ_API_KEY)
     
     completion = client.chat.completions.create(

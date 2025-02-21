@@ -3,7 +3,6 @@ import numpy as np
 import soundfile as sf
 
 def remove_silence_and_fillers(audio_file, trim_ranges):
-    """Removes silence and filler words from an audio file."""
     y, sr = librosa.load(audio_file, sr=None)
 
     samples_to_remove = [(int(start * sr), int(end * sr)) for start, end in trim_ranges]
@@ -19,5 +18,5 @@ def remove_silence_and_fillers(audio_file, trim_ranges):
     audio_trimmed = np.concatenate(audio_trimmed)
     sf.write("cleaned_audio.mp3", audio_trimmed, sr)
 
-    print("✅ Cleaned audio saved as 'cleaned_audio.mp3'")
+    print("Cleaned audio saved as 'cleaned_audio.mp3'")
     return "cleaned_audio.mp3"

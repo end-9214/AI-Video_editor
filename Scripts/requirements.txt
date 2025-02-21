@@ -7,5 +7,5 @@ python-dotenv
 soundfile
 webrtcvad
 opencv-python
-moviepy
+moviepy==1.0.3
 bing-image-downloader

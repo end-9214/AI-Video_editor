@@ -2,7 +2,6 @@ import subprocess
 from pydub import AudioSegment
 
 def get_keep_ranges(all_trim_ranges, audio_file_path):
-    """Computes the time ranges to keep in the video (inverse of trim points)."""
     try:
         audio = AudioSegment.from_file(audio_file_path)
         keep_ranges = []
@@ -18,17 +17,16 @@ def get_keep_ranges(all_trim_ranges, audio_file_path):
             keep_ranges.append((current_start, len(audio) / 1000.0))
 
         keep_ranges = [r for r in keep_ranges if r[0] < r[1]]
-        print(f"✅ Keep Ranges: {keep_ranges}")
+        print(f"Keep Ranges: {keep_ranges}")
 
         return keep_ranges
     except Exception as e:
-        print(f"❌ Error computing keep ranges: {e}")
+        print(f"Error computing keep ranges: {e}")
         return []
 
 def trim_video(input_video, output_video, keep_ranges):
-    """Trims the video using FFmpeg based on keep ranges."""
     if not keep_ranges:
-        print("❌ No valid keep ranges found. Skipping video trimming.")
+        print("No valid keep ranges found. Skipping video trimming.")
         return
 
     filter_str = f"select='{'+'.join([f'between(t,{s},{e})' for s, e in keep_ranges])}',setpts=N/FRAME_RATE/TB"
@@ -47,4 +45,4 @@ def trim_video(input_video, output_video, keep_ranges):
     ]
 
     subprocess.run(cmd)
-    print(f"✅ Video trimmed successfully and saved to {output_video}")
+    print(f"Video trimmed successfully and saved to {output_video}")

@@ -2,12 +2,10 @@ import subprocess
 import os
 
 def convert_video_to_audio(input_video_path):
-    """Extracts audio from a video file and saves it as an MP3."""
     try:
         input_video_name = os.path.splitext(os.path.basename(input_video_path))[0]
         output_audio_path = f"{input_video_name}.mp3"
 
-        # Extract audio
         command = [
             "ffmpeg",
             "-i", input_video_path,
@@ -18,9 +16,9 @@ def convert_video_to_audio(input_video_path):
         ]
 
         subprocess.run(command, check=True)
-        print(f"✅ Audio extracted successfully: {output_audio_path}")
+        print(f"Audio extracted successfully: {output_audio_path}")
         return output_audio_path
 
     except subprocess.CalledProcessError:
-        print("❌ Error extracting audio with FFmpeg.")
+        print("Error extracting audio with FFmpeg.")
         return None
