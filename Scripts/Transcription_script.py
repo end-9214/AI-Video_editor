@@ -5,7 +5,7 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY_FIRST")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def transcription_of_audio(audio_file_path, retries=3):
     client = Groq(api_key=GROQ_API_KEY)

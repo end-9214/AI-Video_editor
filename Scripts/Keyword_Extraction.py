@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY_SECOND"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def extract_keywords(transcribed_text):
 
