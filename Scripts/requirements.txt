@@ -9,3 +9,4 @@ webrtcvad
 opencv-python
 moviepy==1.0.3
 bing-image-downloader
+openai-whisper
