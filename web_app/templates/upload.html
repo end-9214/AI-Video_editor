@@ -4,61 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Video Editor</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        input[type="file"] {
-            display: none;
-        }
-        label {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .api-key-form {
-            margin-bottom: 20px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>AI Video Editor</h1>
-        <form class="api-key-form" action="/set_api_key" method="post">
-            <input type="text" name="api_key" placeholder="Enter GROQ API Key" required>
-            <button type="submit">Set API Key</button>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center animate-fade-in">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">AI Video Editor</h1>
+        <form class="mb-4" action="/set_api_key" method="post">
+            <input type="text" name="api_key" placeholder="Enter GROQ API Key" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition mt-2">Set API Key</button>
         </form>
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="file">
-            <label for="file">Choose a video file</label>
+            <input type="file" name="file" id="file" class="hidden">
+            <label for="file" class="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Choose a video file</label>
             <br>
-            <button type="submit">Upload</button>
+            <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition mt-4">Upload</button>
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".animate-fade-in").classList.add("opacity-100");
+        });
+    </script>
 </body>
 </html>
