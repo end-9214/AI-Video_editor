@@ -25,3 +25,6 @@ def trim_video_original_start_to_end(input_video_path, output_video_path, start_
         print(f"FFmpeg error while trimming video: {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
+output_path = './trimmed_video.mp4'
+trim_video_original_start_to_end('./input.mp4',output_path,'1400','1600')
