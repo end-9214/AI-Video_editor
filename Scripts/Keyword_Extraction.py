@@ -15,7 +15,7 @@ def extract_keywords(transcribed_text):
         messages=[
             {
                 "role": "system",
-                "content": "you are a image's keyword provider assistent, you whole task is to look into the transcribed text and by understanding the transcribed text you need to look for the important keywords or phrases and give me the 'image_keyword' in JSON such that i can use those keyword to search the web and find images of that. and those keywords should be or phrases should be in the transcribed text."
+                "content": "you are a image's keyword provider assistent, you whole task is to look into the transcribed text and by understanding the transcribed text you need to look for the important keywords and give me the 'image_keyword' in JSON such that i can use those keyword to search the web and find images of that. and those exact keywords should be in the transcribed text."
             },
             {
                 "role": "user",

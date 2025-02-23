@@ -13,7 +13,7 @@ def get_keyword_timestamps(transcription_segments, keywords):
             if keyword.lower() in text.lower():
                 if keyword not in keyword_timestamps:
                     keyword_timestamps[keyword] = []
-                keyword_timestamps[keyword].append((max(0, start - 0.5), end + 0.5))  
+                keyword_timestamps[keyword].append((max(0, start - 0.5), end + 0.5))
 
     return keyword_timestamps
 
@@ -25,20 +25,22 @@ def get_first_image_path(folder):
 
 def add_images_to_video(video_path, keyword_timestamps, image_paths, output_path):
     video = VideoFileClip(video_path)
-    video_w, video_h = video.size  
+    video_w, video_h = video.size
+
+    overlay_w, overlay_h = video_w * 0.8, 250 
 
     overlays = []
 
     for keyword, timestamps in keyword_timestamps.items():
         img_path = get_first_image_path(image_paths[keyword])
 
-        if not img_path:
+        if not img_path or not os.path.exists(img_path):
             print(f"No valid image found for {keyword}")
             continue
 
         img_clip = (ImageClip(img_path, transparent=True)
                     .set_duration(1.0)
-                    .resize(width=video_w * 0.8)
+                    .resize((overlay_w, overlay_h))
                     .set_opacity(1))
 
         for start, end in timestamps:
@@ -46,7 +48,7 @@ def add_images_to_video(video_path, keyword_timestamps, image_paths, output_path
             print(f"Overlaying {keyword} from {start}s to {end}s")
 
             clip = (img_clip
-                    .set_position(("center", "top"))
+                    .set_position(("center", "top"))  
                     .set_start(start)
                     .set_duration(end - start)
                     .crossfadein(fade_duration)
