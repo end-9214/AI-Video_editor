@@ -19,7 +19,6 @@ from Scripts.Keyword_Extraction import extract_keywords
 from Scripts.Image_Downloader import download_images
 from Scripts.Overlay_Images import add_images_to_video, get_keyword_timestamps
 
-# Create a directory for final outputs if it doesn't exist
 FINAL_OUTPUTS_DIR = "final_outputs"
 os.makedirs(FINAL_OUTPUTS_DIR, exist_ok=True)
 
@@ -31,14 +30,12 @@ def main():
     uploaded_video = st.file_uploader("📤 Upload a video file", type=["mp4", "mov", "avi"])
     
     if uploaded_video:
-        st.video(uploaded_video)  # Show video preview
+        st.video(uploaded_video)
         
-        # Create a unique folder for this processing session
         session_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:6]}"
         session_dir = os.path.join("processed_videos", session_id)
         os.makedirs(session_dir, exist_ok=True)
 
-        # Save uploaded video in the session folder
         input_video_path = os.path.join(session_dir, uploaded_video.name)
         with open(input_video_path, "wb") as f:
             f.write(uploaded_video.read())
@@ -59,7 +56,7 @@ def main():
                     # Trim video
                     st.write("🔄 Step 1: Trimming video (if selected)...")
                     if trim_option == "Yes" and start_time and end_time:
-                        trimmed_video_path = os.path.join(session_dir, "trimmed_video.mp4")
+                        trimmed_video_path = os.path.join(session_dir, "./trimmed_video.mp4")
                         trim_video_original_start_to_end(input_video_path, trimmed_video_path, start_time, end_time)
                         input_video_path = trimmed_video_path
                     progress_bar.progress(10)
@@ -118,7 +115,7 @@ def main():
                     progress_bar.progress(100)
 
                     st.success("🎉 Video processing complete!")
-                    st.video(final_output_path)  # Show final output
+                    st.video(final_output_path)
 
                 except Exception as e:
                     st.error(f"❌ Error: {e}")
