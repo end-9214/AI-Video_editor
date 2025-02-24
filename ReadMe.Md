@@ -114,6 +114,14 @@ You can check them out if you want to understand the logic behind each step.
 
 ---
 
+## **📊 Results**  
+Here are some example results from the AI Video Editor:  
+  
+![Example](examples/result_images/1st_result.png)
+![Example](examples/result_images/2nd_thumb.png)
+
+---
+
 ## **🎯 Vision**  
 > **The goal of this project is to make video editing as simple as typing a prompt!**  
 > This AI-powered tool automates the entire process, allowing users to **edit videos in no time.** 🚀  
@@ -132,4 +140,5 @@ If you have new ideas or improvements, feel free to open a PR. 🚀
 ## **📧 Contact**  
 If you have any questions, feel free to reach out!  
 📩 Email: [karamveersingh2003111@gmail.com](mailto:karamveersingh2003111@gmail.com)  
-🌍 GitHub: [end-9214](https://github.com/end-9214)  
+🌍 GitHub: [end-9214](https://github.com/end-9214)
+
