@@ -33,8 +33,8 @@ def detect_speech(audio_path, aggressiveness=3):
 
 def load_face_detector():
     net = cv2.dnn.readNetFromCaffe(
-        "deploy.prototxt",
-        "res10_300x300_ssd_iter_140000.caffemodel"
+        "Scripts/deploy.prototxt",
+        "Scripts/res10_300x300_ssd_iter_140000.caffemodel"
     )
     return net
 
