@@ -116,9 +116,9 @@ You can check them out if you want to understand the logic behind each step.
 
 ## **📊 Results**  
 Here are some example results from the AI Video Editor:  
-  
-![Example](examples/result_images/1st_result.png)
-![Example](examples/result_images/2nd_thumb.png)
+
+![Example](examples/result_images/1st_result.jpg)
+![Example](examples/result_images/2nd_thumb.jpg)
 
 ---
 
