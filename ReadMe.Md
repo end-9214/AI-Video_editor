@@ -1,7 +1,7 @@
 # **🎬 AI Video Editor**  
 An **open-source** AI-powered video editor that removes silence, adds subtitles, overlays relevant images, and enhances videos automatically.
 
-## ** Disclamer **
+## ** Disclaimer **
 > Currently, This only works on Podcast videos where there are less people in the frame and only 1 or 2 people talking at a time. I am still working on to make it work greatly on every kind of video. Till then, enjoy!! :D
 
 ## **🌟 Features**  
